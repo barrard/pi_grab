@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LandSale</title>
+  <link rel="stylesheet" type="text/css" href="css/css.css">
+</head>
+<body>
+  <h1>LandSale</h1>
+  <p>Your Account ID:   <span id="ethAccountID"></span></p>
+  <p>Your Current Balance:   <span id="currentBalance"></span></p>
+  <p>Your Token Balance <span id="current_token_balance"></span></p>
+
+<!-- Crowdsale detials -->
+  <div id="crowdsale_info">
+    <p>Crowdsale Address <span id="crowdsale_address"></span></p>
+    <p>Total Tokens Available <span id="tokens_available"></span></p>
+    <p>Tokens remaining <span id="tokens_remaining"></span></p>
+    <p>Crowdsale Owner <span id="crowdsale_owner_address"></span></p>
+    <p>Crowdsale Creation <span id="crowdsale_creation_time"></span></p>
+    <p>Crowdsale Closing Time <span id="crowdsale_closing_time"></span></p>
+    <p>Crowdsale Eth Raised <span id="crowdsale_eth_raised"></span></p>
+    <p>Crowdsale Goal <span id="crowdsale_goal"></span></p>
+    <p>Crowdsale Goal Reached <span id="crowdsale_goal_reached"></span></p>
+    <p>Crowdsale Has Closed <span id="crowdsale_has_closed"></span></p>
+  </div>
+
+
+<!-- Box to buy tokens -->
+  <div id="buying_box">
+    Buy Tokens for this crowdsale
+  </div>
+
+
+<!-- Minted only by owner -->
+  <div id="token_minting_owner">
+    <p>Token minter</p>
+    Amount
+    <input
+      type="number"
+      name="token_mint_amount"
+      id="token_minting_amount"
+    />
+    Address
+    <input
+      type="text"
+      name="crowdsale_address"
+      id="crowdsale_address_to_receive"
+    />
+    <button id='mint_token_btn'>Send it</button>
+  </div>
+
+
+<!-- Scripts -->
+  <script src="js/jq.js"></script>
+  <script src="js/js.js"></script>
+  <script src="js/utils.js"></script>
+</body>
+</html>
