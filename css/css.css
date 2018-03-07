@@ -12,6 +12,6 @@
   height: 800px;
   background-image: url("/img/small-land-background.jpeg");
   background-size: cover;
-  filter: contrast(40%) brightness(85%) hue-rotate(40deg) blur(1px) sepia(55%) saturate(5);
+  filter: contrast(40%) brightness(85%) hue-rotate(0deg) blur(1px) sepia(5%) saturate(3);
 
 }
