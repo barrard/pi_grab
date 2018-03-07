@@ -2,16 +2,280 @@
   display: none;
 }
 
-.background-image{
-  position: fixed;
-  left: 0;
-  right: 0;
+#user-info{
+  position: absolute;
+  left: -100%;
+}
+
+.crowdsale_info{
+  position: absolute;
+  right: 0px;
+  top: 20%;
+  border: 3px solid goldenrod;
+  height: 75%;
+  width: 35%;
+  background: rgba(222, 222, 222, 1);
+}
+
+
+
+#map1 {
+  top: 0%;
+  left: -27%;
+  position: absolute;
+ height: 220px;
+ width: 128%;
+ z-index: -3;
+}
+
+#map2 {
+
+  top:10%;
+  position: absolute;
+ height: 220px;
+ width: 50%;
+ z-index: -2;
+ left: 48%;
+ box-shadow: 3px 3px 4px 4px rgba(100, 100, 100, 0.1);
+}
+
+/*.home-section{
+  position: relative;
+}*/
+
+.house-image{
+  position: absolute;
+  z-index: 10;
+  left: 10%;
+  top: 25%;
   z-index: -1;
+  box-shadow: 10px 10px 5px 5px rgba(111, 111, 111, 0.5);
+
   display: block;
-  width: 1200px;
-  height: 800px;
+  width: 450px;
+  height: 300px;
   background-image: url("../small-land-background.jpeg");
   background-size: cover;
   filter: contrast(40%) brightness(85%) hue-rotate(0deg) blur(1px) sepia(5%) saturate(3);
 
+}
+
+
+#animated:active{
+  background-color: #cd5c5c;
+  transition: all .2s;
+  box-shadow: 0px 0px 5px 1px yellow, 0px 0px 0px 0px pink;
+  /*cursor: help;*/
+  top: 0px;
+  left: 0px;
+
+}
+
+
+
+#animated{
+  box-shadow:
+/*  1px 1px 0px 0px#ffdf32,
+  2px 2px 0px 0px#ffe34c,
+  3px 3px 0px 0px#ffe766,
+  4px 4px 0px 0px#ffeb7f,
+  5px 5px 0px 0px#ffef99,
+  6px 6px 0px 0px#fff3b2,
+  7px 7px 0px 0px#fff7cc,
+  8px 8px 0px 0px#fffbe5,
+  9px 9px 0px 0px#ffffff;*/
+
+  /* multi-color  */
+/*  1px 1px 1px 0px #1a0dab,
+  2px 2px 1px 0px #680cab,
+  3px 3px 1px 0px #0c4fab,
+  4px 4px 1px 0px #da251d,
+  5px 5px 1px 0px #ffd700;*/
+
+
+  2px 2px 0px 0px #fff3b2,
+  3px 3px 0px 0px #fff7cc,
+  4px 4px 0px 0px #fffbe5,
+  5px 5px 0px 0px #ffffff;
+
+
+/*  0px 0px 64px 2px yellow,
+  4px 4px 0px 0px pink;
+*/
+  transition: all .2s;
+  top: -4px;
+  left: -4px;
+  position: relative;
+  display: inline-block;
+  padding: 20px;
+  border-radius:10px;
+  background-color: pink;
+/*  width: 100px;
+  height: 100px;*/
+  animation: hamburger 1s ease-in;
+  animation-delay: 0.3s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  /*animation-fill-mode: forwards;*/
+}
+/*#animated:after{
+    content:'';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -50px;
+    width: 0;
+    height: 0;
+    border-top: solid 50px #e15915;
+    border-left: solid 50px transparent;
+    border-right: solid 50px transparent;
+}*/
+
+.bar{
+  padding: 1px;
+  position: relative;
+  background-color: black;
+  font-weight: bolder;
+  width:40px;
+}
+
+.disolve{
+  animation-name: disolve;
+  animation-duration: .2s; 
+  animation-timing-function: ease-in;
+  /*animation-delay: 0s*/
+  /*animation-iteration-count: 10;*/
+  /*animation-direction: normal;*/
+  animation-fill-mode: forwards;
+  /*animation-play-state: running;*/
+}
+.reverseAnimate{
+  animation-direction: reverse;
+}
+
+@keyframes disolve{
+  0%{
+    opacity: 1;
+  }
+  100%{
+/*    transform: rotateZ(90deg);*/
+    opacity: 0;
+  }
+}
+
+.rotateRight{
+  animation: rotateRight .6s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotateRight{
+  0%{
+/*    transform: rotate(0deg) translate(0px);
+*/
+  }50%{
+    transform: translate(0, 12px);
+  }80%{
+    transform:  translate(0px, 12px) rotate(65deg);
+
+  }
+  100%{
+    /*rotate(45deg)*/
+    transform:  translate(0px, 12px) rotateZ(45deg);
+/*    transform:translate(0px, 10px);*/
+  }
+}
+
+.rotateLeft{
+  animation: rotateLeft;
+  animation-timing-function: ease;
+  animation-duration: .6s;
+  animation-fill-mode: forwards;
+  /*animation-play-state: running;*/
+
+}
+
+@keyframes rotateLeft{
+  0%{
+
+  }50%{
+    transform: translate(0, -12px);
+  }80%{
+    transform:  translate(0px, -12px) rotate(-65deg);
+
+  }
+  100%{
+    transform:  translate(0px, -12px) rotate(-45deg);
+  }
+}
+
+.upLeftFlat{
+  animation: upLeftFlat .7s ease-in;
+  animation-fill-mode: forwards
+}
+
+@keyframes upLeftFlat{
+  0%{
+    transform:  translate(0px, 12px) rotateZ(45deg);
+  }
+  100%{
+    /*rotate(45deg)*/
+
+    transform:  rotate(0deg)translate(0px, 0px);
+  }
+}
+
+.downRightFlat{
+  animation: downRightFlat .7s ease-in;
+  animation-fill-mode: forwards
+}
+
+@keyframes downRightFlat{
+  0%{
+    transform:  translate(0px, -12px) rotate(-45deg);
+  }
+  100%{
+    /*rotate(45deg)*/
+    transform:  rotate(0deg)translate(0px, 0px);
+  }
+}
+
+.reappear{
+  animation: reappear .7s ease-in;
+  animation-fill-mode: forwards
+}
+
+@keyframes reappear{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    /*rotate(45deg)*/
+    opacity: 1;
+  }
+}
+
+
+
+@keyframes hambufrger {
+  0%, 35%{
+    transform: scale(1.0);
+    border-radius: 5px;
+    /*border-radius: 5px 50%;*/
+
+
+  }
+  50%{
+    transform: scale(1.1);
+    border-radius:1px;
+    /*transform-origin:0 0;*/
+    border-radius:15px;
+
+
+  }
+  100%{
+    transform: scale(1.0);
+    border-radius:5px;
+
+  }
 }

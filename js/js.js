@@ -118,5 +118,6 @@ $(function() {
   $(window).on('load', function() {
     console.log('load')
     App.init();
+    initMap()
   });
 });
