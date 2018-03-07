@@ -1,3 +1,17 @@
 #token_minting_owner{
   display: none;
 }
+
+.background-image{
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  width: 1200px;
+  height: 800px;
+  background-image: url("/img/small-land-background.jpeg");
+  background-size: cover;
+  filter: contrast(40%) brightness(85%) hue-rotate(40deg) blur(1px) sepia(55%) saturate(5);
+
+}
