@@ -10,7 +10,7 @@
   display: block;
   width: 1200px;
   height: 800px;
-  background-image: url("/small-land-background.jpeg");
+  background-image: url("../small-land-background.jpeg");
   background-size: cover;
   filter: contrast(40%) brightness(85%) hue-rotate(0deg) blur(1px) sepia(5%) saturate(3);
 
