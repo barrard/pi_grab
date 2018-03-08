@@ -18,13 +18,13 @@
 }
 
 #eth-logo{
-  background-image: url("../eth-blue.jpeg");
+  background-image: url("../eth-blue1.png");
   width: 100px;
   height: 100px;
   position: absolute;
   right: 0px;
   bottom: 0px;
-  background: transparent;
+  /*background: transparent;*/
 }
 
 .crowdsale-data{
@@ -52,11 +52,14 @@
 
 
 #block-spinner{
+  background-image: url("../block-spinner.gif");
+  background-size: 100px 100px; 
   display: none;
   position: absolute;
   top: 29%;
   left: 75%;
   height: 100px;
+  width: 100px;
 }
 
 #map1 {

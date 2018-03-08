@@ -117,7 +117,7 @@ App = {
         }else if(txHash){
           call_when_mined(txHash, function(){hide_spinner('#block-spinner')})
 
-          toastr.success(txHash, 'Successfully send ether')
+          toastr.success(txHash, 'Success! Your token is on it\'s way soon')
           console.log(txHash)
         }
         $('#sendEtherInLethalAmount').val('')
