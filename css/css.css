@@ -4,20 +4,60 @@
 
 #user-info{
   position: absolute;
-  left: -100%;
+  left: -10%;
 }
 
 .crowdsale_info{
   position: absolute;
   right: 0px;
   top: 20%;
-  border: 3px solid goldenrod;
+  /*border: 3px solid goldenrod;*/
   height: 75%;
   width: 35%;
   background: rgba(222, 222, 222, 1);
 }
 
+#eth-logo{
+  /*background-image: url("../eth-blue.jpeg");*/
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background: transparent;
+}
 
+.crowdsale-data{
+  box-shadow:
+    0px 2px 0px 0px hsl(195, 85%, 47%),
+    0px 10px 5px -4px hsl(0, 100%, 100%),
+    0px 5px 0px 0px hsl(0, 0%, 80%)
+}
+.crowdsale-info-tag{
+  position: relative;
+  line-height: 2em;
+  display: inline;
+  box-shadow:
+    0px 2px 0px 0px hsl(95, 85%, 47%),
+    0px 10px 5px -4px hsl(0, 100%, 100%),
+    0px 5px 0px 0px hsl(0, 0%, 80%)
+}
+/*.crowdsale-info-tag:after{
+  margin-left: 2px;
+  margin-right: 2px;
+  right: 0px;
+  content: "-";
+  position: absolute;
+}*/
+
+
+#block-spinner{
+  display: none;
+  position: absolute;
+  top: 29%;
+  left: 75%;
+  height: 100px;
+}
 
 #map1 {
   top: 0%;
@@ -39,6 +79,11 @@
  box-shadow: 3px 3px 4px 4px rgba(100, 100, 100, 0.1);
 }
 
+#buying_box{
+
+}
+
+
 /*.home-section{
   position: relative;
 }*/
@@ -53,10 +98,10 @@
 
   display: block;
   width: 450px;
-  height: 300px;
-  background-image: url("../small-land-background.jpeg");
+  height: 338px;
+  background-image: url("../small-land-preview.jpeg");
   background-size: cover;
-  filter: contrast(40%) brightness(85%) hue-rotate(0deg) blur(1px) sepia(5%) saturate(3);
+  /*filter: contrast(40%) brightness(85%) hue-rotate(0deg) blur(1px) sepia(5%) saturate(3);*/
 
 }
 
@@ -93,9 +138,14 @@
   5px 5px 1px 0px #ffd700;*/
 
 
-  2px 2px 0px 0px #fff3b2,
+/*  2px 2px 0px 0px #fff3b2,
   3px 3px 0px 0px #fff7cc,
   4px 4px 0px 0px #fffbe5,
+  5px 5px 0px 0px #ffffff;*/
+
+  2px 2px 0px 0px #1962b6,
+  3px 3px 0px 0px #1658a3,
+  4px 4px 0px 0px #11447f,
   5px 5px 0px 0px #ffffff;
 
 
@@ -109,10 +159,10 @@
   display: inline-block;
   padding: 20px;
   border-radius:10px;
-  background-color: pink;
+  background: linear-gradient(hsl(195, 85%, 47%), hsl(95, 85%, 47%));
 /*  width: 100px;
   height: 100px;*/
-  animation: hamburger 1s ease-in;
+  /*animation: hamburger 1s ease-in;*/
   animation-delay: 0.3s;
   animation-direction: normal;
   animation-iteration-count: infinite;
@@ -165,7 +215,7 @@
 }
 
 .rotateRight{
-  animation: rotateRight .6s ease-in;
+  animation: rotateRight .3s ease-in;
   animation-fill-mode: forwards;
 }
 
@@ -189,7 +239,7 @@
 .rotateLeft{
   animation: rotateLeft;
   animation-timing-function: ease;
-  animation-duration: .6s;
+  animation-duration: .3s;
   animation-fill-mode: forwards;
   /*animation-play-state: running;*/
 
@@ -210,7 +260,7 @@
 }
 
 .upLeftFlat{
-  animation: upLeftFlat .7s ease-in;
+  animation: upLeftFlat .3s ease-in;
   animation-fill-mode: forwards
 }
 
@@ -226,7 +276,7 @@
 }
 
 .downRightFlat{
-  animation: downRightFlat .7s ease-in;
+  animation: downRightFlat .3s ease-in;
   animation-fill-mode: forwards
 }
 
@@ -241,7 +291,7 @@
 }
 
 .reappear{
-  animation: reappear .7s ease-in;
+  animation: reappear .2s ease-in;
   animation-fill-mode: forwards
 }
 
@@ -255,27 +305,41 @@
   }
 }
 
+.main-nav{
+  margin:10px;
+  position: absolute;
+  left: -100%;
+  transition: all .3s ease-in;
+}
+.main-nav > *{
+  text-decoration: none;
+  text-align:center;
+  padding: 0em 0em 0.5em 0em;
+  margin: 0em 0em 0.5em 0em;
+  text-decoration: none;
+  background-color: rgb(222, 222, 222);
+  display: block;
 
+}
+.open-nav{
+  /*position: fixed;*/
+  /*position: absolute;*/
 
-@keyframes hambufrger {
-  0%, 35%{
-    transform: scale(1.0);
-    border-radius: 5px;
-    /*border-radius: 5px 50%;*/
-
-
-  }
-  50%{
-    transform: scale(1.1);
-    border-radius:1px;
-    /*transform-origin:0 0;*/
-    border-radius:15px;
-
-
-  }
-  100%{
-    transform: scale(1.0);
-    border-radius:5px;
-
-  }
+  /*display: inline-block;*/
+  left: 0%;
+}
+/* stupid check marks before main nav links  */
+.open-nav>a:hover::before{
+/*.open-nav>a:before{*/
+  content: '';
+  position: absolute;
+  border-color: #009933;
+  border-style: solid;
+  border-width: 0 0.3em 0.25em 0;
+  height: 1em;
+  /*top: 1.3em;*/
+  left: -1.6em;
+  margin-top: -.5em;
+  transform: rotate(45deg);
+  width: 0.5em;
 }

@@ -73,7 +73,9 @@ App = {
     })
     App.contracts.crowdsale.ethRaised(function(e, r){
       if (e) {return}
-        $('#crowdsale_eth_raised').text(r)
+        $('#tokens_sold').text(r)
+      $('#crowdsale_eth_raised').text(r/10)
+
     })
     App.contracts.crowdsale.goal(function(e, r){
       if (e) {return}
@@ -97,12 +99,47 @@ App = {
 
 
     //click action
+    $('#purchase_tokens_btn').on('click', function(){
+      var _val = $('#number_of_tokens_to_buy').val()
+      console.log('buying '+_val)
+      activate_spinner('#block-spinner')
+
+      web3.eth.sendTransaction({
+        from:web3.eth.coinbase,
+        to:App.address.crowdsale,
+        value:web3.toWei(_val, "ether")
+      }, function(e, txHash){
+        if(e){
+          hide_spinner('#block-spinner')
+          toastr.warning(e, 'Failed to send Ether')
+          console.log(e)
+
+        }else if(txHash){
+          call_when_mined(txHash, function(){hide_spinner('#block-spinner')})
+
+          toastr.success(txHash, 'Successfully send ether')
+          console.log(txHash)
+        }
+        $('#sendEtherInLethalAmount').val('')
+        $('#WeiView').html('')
+
+
+      })
+    })
+
     $('#mint_token_btn').on('click', function(){
       var _addr = $('#crowdsale_address_to_receive').val()
       var _val = $('#token_minting_amount').val()
-      App.contracts.token.mint(_addr, _val, function(e, r){
-        if(e){return}
-          console.log(r)
+      activate_spinner('#block-spinner')
+      App.contracts.token.mint(_addr, _val, function(e, txHash){
+        
+        if(e){hide_spinner('#block-spinner');return}
+          console.log(txHash)
+          call_when_mined(txHash, function(){hide_spinner('#block-spinner')})
+        
+
+        $('#crowdsale_address_to_receive').val('')
+        $('#token_minting_amount').val('')
 
       })
     })

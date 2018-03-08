@@ -49,7 +49,28 @@ function format_date_time_stamp(_num){
   }, true)
 
 
-  var dropDownBtnEl = document.getElementsByClassName('dropDownBtn')[0];
-  dropDownBtnEl.addEventListener('click', function(){
-    this.classList.toggle('activeDrop')
-  }, false)
+  // var dropDownBtnEl = document.getElementsByClassName('dropDownBtn')[0];
+  // dropDownBtnEl.addEventListener('click', function(){
+  //   this.classList.toggle('activeDrop')
+  // }, false)
+  function call_when_mined(txHash, callback){
+    web3.eth.getTransactionReceipt(txHash, function(e, r){
+      if(e){console.log(e)}
+        else{
+          if(r==null){
+            setTimeout(function(){
+              call_when_mined(txHash, callback)
+            }, 500)
+          }else{
+            callback();
+          }
+        }
+    })
+  }
+
+  function activate_spinner(_spinner){
+    $(_spinner).css({display:'block'})
+  }
+  function hide_spinner(_spinner){
+    $(_spinner).css({display:'none'})
+  }

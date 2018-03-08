@@ -8,9 +8,9 @@
 <body>
   <div class="map-box">
     <div id="map1"></div>
-    <div id="map2-wrapper">
+<!--     <div id="map2-wrapper">
       <div id="map2"></div>
-    </div>
+    </div> -->
   </div>
   <div class="home-section">
       <div class="house-image"></div>
@@ -21,47 +21,60 @@
       </div>
     <!-- Crowdsale detials -->
       <div class="crowdsale_info">
-        <p>Crowdsale Address <span id="crowdsale_address"></span></p>
-        <p>Total Tokens Available <span id="tokens_available"></span></p>
-        <p>Tokens remaining <span id="tokens_remaining"></span></p>
-        <p>Crowdsale Owner <span id="crowdsale_owner_address"></span></p>
-        <p>Crowdsale Creation <span id="crowdsale_creation_time"></span></p>
-        <p>Crowdsale Closing Time <span id="crowdsale_closing_time"></span></p>
-        <p>Crowdsale Eth Raised <span id="crowdsale_eth_raised"></span></p>
-        <p>Crowdsale Goal <span id="crowdsale_goal"></span></p>
-        <p>Crowdsale Goal Reached <span id="crowdsale_goal_reached"></span></p>
-        <p>Crowdsale Has Closed <span id="crowdsale_has_closed"></span></p>
+        <p class="crowdsale-info-tag">Crowdsale Address:  </p><span class="crowdsale-data" id="crowdsale_address"></span><br>
+        <p class="crowdsale-info-tag">Total Tokens Available:  </p><span class="crowdsale-data" id="tokens_available"></span><br>
+        <p class="crowdsale-info-tag">Tokens Sold:  </p><span class="crowdsale-data" id="tokens_sold"></span><br>
+        <p class="crowdsale-info-tag">Crowdsale Owner:  </p><span class="crowdsale-data" id="crowdsale_owner_address"></span><br>
+        <p class="crowdsale-info-tag">Crowdsale Creation:  </p><span class="crowdsale-data" id="crowdsale_creation_time"></span><br>
+        <p class="crowdsale-info-tag">Crowdsale Closing Time:  </p><span class="crowdsale-data" id="crowdsale_closing_time"></span><br>
+        <p class="crowdsale-info-tag">Crowdsale Eth Raised:  </p><span class="crowdsale-data" id="crowdsale_eth_raised"></span><br>
+        <p class="crowdsale-info-tag">Crowdsale Goal:  </p><span class="crowdsale-data" id="crowdsale_goal"></span><br>
+        <p class="crowdsale-info-tag">Crowdsale Goal Reached:  </p><span class="crowdsale-data" id="crowdsale_goal_reached"></span><br>
+        <p class="crowdsale-info-tag">Crowdsale Has Closed:  </p><span class="crowdsale-data" id="crowdsale_has_closed"></span><br>
+        <!-- <div id="eth-logo" src="../eth-blue.jpeg"></div> -->
+        <img id="eth-logo" src="../eth-blue1.png">
       </div>
 
 
-    <!-- Box to buy tokens -->
-      <div id="buying_box">
-        Buy Tokens for this crowdsale
-      </div>
+      <div class="main-nav">
+        <!-- Box to buy tokens -->
+          <div id="buying_box">
+            <h4>Buy Tokens for this crowdsale</h4>
+            <p>Your Account Address: <span id="ethAccountID"></span></p>
+            <p>Curent Balance: <span id="currentBalance"></span></p>
+            <p>Token Balance: <span id="current_token_balance"></span></p>
+            <p>Rate: 1 token = 0.1 Eth</p>
+            <label for="number_of_tokens_to_buy">How many tokens would you like to purchase</label>
+            <input id="number_of_tokens_to_buy" type="number" name="number_of_tokens_to_buy"/>
+            <button id="purchase_tokens_btn">Fund it!</button>
+            <img id="block-spinner" src="../block-spinner.gif">
+          </div>
 
 
-    <!-- Minted only by owner -->
-      <div id="token_minting_owner">
-        <p>Token minter</p>
-        Amount
-        <input
-          type="number"
-          name="token_mint_amount"
-          id="token_minting_amount"
-        />
-        Address
-        <input
-          type="text"
-          name="crowdsale_address"
-          id="crowdsale_address_to_receive"
-        />
-        <button id='mint_token_btn'>Send it</button>
+        <!-- Minted only by owner -->
+          <div id="token_minting_owner">
+            <p>Token minter</p>
+            Amount
+            <input
+              type="number"
+              name="token_mint_amount"
+              id="token_minting_amount"
+            />
+            Address
+            <input
+              type="text"
+              name="crowdsale_address"
+              id="crowdsale_address_to_receive"
+            />
+            <button id='mint_token_btn'>Send it</button>
+          </div>
       </div>
   </div>
 
 
 <!-- Scripts -->
   <script src="js/jq.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
   <script src="js/js.js"></script>
   <script src="js/utils.js"></script>
   <script async defer
