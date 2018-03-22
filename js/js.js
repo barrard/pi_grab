@@ -1,7 +1,7 @@
 App = {
   address:{
     token:"0x409F8C0Bb2C9C278a51E9f0E0f38AD32F663415e",
-    crowdsale:'0x62b8383f9a42252ab7cbfcf91c8ec36f38c6109d',
+    crowdsale:'0x4fed11DF20f85C1BBe0b19680773929C3172161a',
   },
   abi:{},
   contracts:{},
@@ -79,7 +79,7 @@ App = {
     })
     App.contracts.crowdsale.goal(function(e, r){
       if (e) {return}
-        $('#crowdsale_goal').text(r)
+        $('#crowdsale_goal').text(r/10)
     })
     App.contracts.crowdsale.goalReached(function(e, r){
       if (e) {return}
