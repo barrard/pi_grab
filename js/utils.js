@@ -22,7 +22,7 @@ function format_date_time_stamp(_num){
     //   seconds, minutes, hours, days, years
     // })
 
-    return `${Math.round(days%365)} Days, ${Math.round(hours%24)} Hours, ${Math.round(minutes%60)} Minutes, ${Math.round(seconds%60)} seconds`
+    return `${Math.floor(days%365)} Days, ${Math.floor(hours%24)} Hours, ${Math.floor(minutes%60)} Minutes, ${Math.floor(seconds%60)} seconds`
   }
 
 
