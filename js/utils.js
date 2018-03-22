@@ -11,6 +11,20 @@ function format_date_time_stamp(_num){
     return _time_stamp
   }
 
+  function format_date_time_remaining(_seconds_remaining){
+    var seconds = _seconds_remaining/1000
+    var minutes = seconds/60
+    var hours = minutes/60
+    var days = hours/24
+    var years = days/365
+
+    // console.log({
+    //   seconds, minutes, hours, days, years
+    // })
+
+    return `${Math.round(days%365)} Days, ${Math.round(hours%24)} Hours, ${Math.round(minutes%60)} Minutes, ${Math.round(seconds%60)} seconds`
+  }
+
 
   // Crazy hamburger code
   var hamburger = true;

@@ -56,7 +56,7 @@ App = {
 
     App.contracts.token.balanceOf(App.address.crowdsale, function(e, r){
       if (e) {return}
-        $('#tokens_available').text(r)
+        $('#tokens_available').text(3690-r)
     })
     App.contracts.crowdsale.owner(function(e, r){
       if (e) {return}
@@ -66,20 +66,28 @@ App = {
     App.contracts.crowdsale.openingTime(function(e, r){
       if (e) {return}
         $('#crowdsale_creation_time').text(format_date_time_stamp(r*1000))
+
+        App.contracts.crowdsale.closingTime(function(e, r){
+          if (e) {return}
+            setInterval(function(){
+                var now = new Date().getTime();
+              const closing_time = r*1000
+              var time_left = closing_time - now
+
+                $('#crowdsale_time_remaining').text(format_date_time_remaining(time_left))
+            }, 1000)
+        })
     })
-    App.contracts.crowdsale.closingTime(function(e, r){
-      if (e) {return}
-        $('#crowdsale_closing_time').text(format_date_time_stamp(r*1000))
-    })
+
     App.contracts.crowdsale.ethRaised(function(e, r){
       if (e) {return}
-        $('#tokens_sold').text(r)
-      $('#crowdsale_eth_raised').text(r/10)
+        // $('#tokens_sold').text(r)
+      $('#crowdsale_eth_raised').text(web3.fromWei(r, 'ether'))
 
     })
     App.contracts.crowdsale.goal(function(e, r){
       if (e) {return}
-        $('#crowdsale_goal').text(r/10)
+        $('#crowdsale_goal').text(web3.fromWei(r, 'ether')+' ETH')
     })
     App.contracts.crowdsale.goalReached(function(e, r){
       if (e) {return}
@@ -104,10 +112,11 @@ App = {
       console.log('buying '+_val)
       activate_spinner('#block-spinner')
 
-      web3.eth.sendTransaction({
+      // web3.eth.sendTransaction({
+      App.contracts.crowdsale.buyTokens( _val,{
         from:web3.eth.coinbase,
         to:App.address.crowdsale,
-        value:web3.toWei(_val, "ether")
+        value:web3.toWei(_val*180, "finney")
       }, function(e, txHash){
         if(e){
           hide_spinner('#block-spinner')
