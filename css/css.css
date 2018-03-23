@@ -46,8 +46,8 @@ tr:nth-child(odd){
   display: flex;
   position: absolute;
   top: 52%;
-  left: 8%;
-  width: 35%;
+  left: 2%;
+  width: 46%;
   border: 1px solid red;
 }
 .crowdsale_info:before{
