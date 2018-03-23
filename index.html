@@ -26,17 +26,16 @@
       </div>
     <!-- Crowdsale detials -->
       <div class="crowdsale_info">
-        <p class="crowdsale-info-tag">Crowdsale Address:  </p><span class="crowdsale-data" id="crowdsale_address"></span><br>
-        <p class="crowdsale-info-tag">Crowdsale Owner:  </p><span class="crowdsale-data" id="crowdsale_owner_address"></span><br>
+        <p>Target 3400  |  1 Token = 0.18 ETH (~$100)</p>
+        <p>1 Token = 65% of the Appreciation (Shared Future Equity)</p>
+        <h4>Buy Tokens for this crowdsale</h4>
+        <label for="number_of_tokens_to_buy">#</label>
+        <input value="0" id="number_of_tokens_to_buy" type="number" name="number_of_tokens_to_buy"/>
+        <button id="purchase_tokens_btn">Fund</button>
+        <div id="block-spinner"></div>
 
-        <!-- <p class="crowdsale-info-tag">Total Tokens Available:  </p><span class="crowdsale-data" id="tokens_available"></span>/<span class="gold-underline">3400</span><br> -->
-        <p class="crowdsale-info-tag">Tokens Sold:  </p><span class="crowdsale-data" id="tokens_available"></span>/<span class="gold-underline">3690</span><br>
-        <p class="crowdsale-info-tag">Created on:  </p><span class="crowdsale-data" id="crowdsale_creation_time"></span><br>
-        <p class="crowdsale-info-tag">Time remaining:  </p><br><span class="crowdsale-data" id="crowdsale_time_remaining"></span><br>
-        <p class="crowdsale-info-tag">Crowdsale Eth Raised:  </p><span class="crowdsale-data" id="crowdsale_eth_raised"></span>/<span class="gold-underline"><span class="crowdsale-data" id="crowdsale_goal"></span></span><br>
-        <!-- <p class="crowdsale-info-tag">Crowdsale Goal:  </p><span class="crowdsale-data" id="crowdsale_goal"></span><br> -->
-        <p class="crowdsale-info-tag">Crowdsale Goal Reached:  </p><span class="crowdsale-data" id="crowdsale_goal_reached"></span><br>
-        <p class="crowdsale-info-tag">Crowdsale Has Closed:  </p><span class="crowdsale-data" id="crowdsale_has_closed"></span><br>
+
+       
         <div id="eth-logo"></div>
         <!-- <div id="logo-wrapper"><div id="eth-logo"></div></div> -->
         <!-- <img id="eth-logo" src="../eth-blue1.png"> -->
@@ -46,15 +45,24 @@
       <div class="main-nav">
         <!-- Box to buy tokens -->
           <div id="buying_box">
-            <h4>Buy Tokens for this crowdsale</h4>
+            
             <p>Your Account Address: <span id="ethAccountID"></span></p>
             <p>Curent Balance: <span id="currentBalance"></span></p>
             <p>Token Balance: <span id="current_token_balance"></span></p>
-            <p>Rate: 1 token = 0.1 Eth</p>
-            <label for="number_of_tokens_to_buy">How many tokens would you like to purchase</label>
-            <input id="number_of_tokens_to_buy" type="number" name="number_of_tokens_to_buy"/>
-            <button id="purchase_tokens_btn">Fund it!</button>
-            <div id="block-spinner"></div>
+
+            <p class="crowdsale-info-tag">Time remaining:  </p><br><span class="crowdsale-data" id="crowdsale_time_remaining"></span><br>
+
+            <p class="crowdsale-info-tag">Crowdsale Address:  </p><span class="crowdsale-data" id="crowdsale_address"></span><br>
+            <p class="crowdsale-info-tag">Crowdsale Owner:  </p><span class="crowdsale-data" id="crowdsale_owner_address"></span><br>
+
+            <!-- <p class="crowdsale-info-tag">Total Tokens Available:  </p><span class="crowdsale-data" id="tokens_available"></span>/<span class="gold-underline">3400</span><br> -->
+            <p class="crowdsale-info-tag">Tokens Sold:  </p><span class="crowdsale-data" id="tokens_available"></span>/<span class="gold-underline">3690</span><br>
+            <p class="crowdsale-info-tag">Created on:  </p><span class="crowdsale-data" id="crowdsale_creation_time"></span><br>
+            <p class="crowdsale-info-tag">Crowdsale Eth Raised:  </p><span class="crowdsale-data" id="crowdsale_eth_raised"></span>/<span class="gold-underline"><span class="crowdsale-data" id="crowdsale_goal"></span></span><br>
+            <!-- <p class="crowdsale-info-tag">Crowdsale Goal:  </p><span class="crowdsale-data" id="crowdsale_goal"></span><br> -->
+            <p class="crowdsale-info-tag">Crowdsale Goal Reached:  </p><span class="crowdsale-data" id="crowdsale_goal_reached"></span><br>
+            <p class="crowdsale-info-tag">Crowdsale Has Closed:  </p><span class="crowdsale-data" id="crowdsale_has_closed"></span><br>
+ 
           </div>
 
 

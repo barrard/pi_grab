@@ -27,13 +27,20 @@ App = {
           $('#token_minting_owner').css({display:"block"});
         }
         App.account = r[0];
-        web3.eth.getBalance(r[0].toString(),function(e, r){
-          if(e){console.log(e)}
+        try {
+          web3.eth.getBalance(r[0].toString(),function(e, r){
+          if(e){
+            console.log(e)
+            return
+          }
           console.log(r.toNumber())
           $('#currentBalance').html(web3.fromWei(r.toNumber()))
           return App.initContract();
 
-        })
+          })
+        }catch (e){
+          console.log(e)
+        }
       })
   },
   initContract: function() {

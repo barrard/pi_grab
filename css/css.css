@@ -10,8 +10,19 @@
   left: -10%;
 }
 
+.crowdsale_info:before{
+  left: 0;
+  width:100%;
+  content: "QAltFund";
+  font-size: 2em;
+  font-weight: 600;
+  position: absolute;
+  top: -1em;
+  background:  linear-gradient(hsl(95, 46%, 91%), hsl(95, 85%, 47%));
+}
 .crowdsale_info{
-  text-align: center;
+  padding: 1em;
+  /*text-align: center;*/
   /*color: rgb(222, 222,222);*/
   border-radius: 5px;
   position: absolute;
