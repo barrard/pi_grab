@@ -48,9 +48,9 @@ tr:nth-child(odd){
     padding: 18px;
     width: 100%;
     border: none;
-    text-align: left;
+    text-align: center;
     outline: none;
-    font-size: 15px;
+    font-size: 25px;
     transition: 0.4s;
 }
 
@@ -71,7 +71,7 @@ tr:nth-child(odd){
   top: 52%;
   left: 2%;
   width: 46%;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
 }
 .crowdsale_info:before{
   left: 0;
@@ -185,11 +185,10 @@ tr:nth-child(odd){
 
 #client-video{
   position: absolute;
-  top:20%;
-  top: 20%;
-  left: 8%;
-  width: 440px;
-  height: 250px;
+  top: 17%;
+  left: 2%;
+  width: 516px;
+  height: 290px;
 }
 
 /*.home-section{
