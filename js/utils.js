@@ -88,3 +88,38 @@ function format_date_time_stamp(_num){
   function hide_spinner(_spinner){
     $(_spinner).css({display:'none'})
   }
+
+
+  var image_array = ['small-land-preview', 'doll-house', 'green-house']
+  var carousel_counter = 0;
+  function init_carousel(){
+    var backBtn = $('#carousel-back-btn')
+    var forwardBtn = $('#carousel-forward-btn')
+    var carousel_el = $('.house-image')[0]
+    $(carousel_el).css({'background-image':'url('+image_array[carousel_counter]+'.jpeg)'})
+
+    $(backBtn).on('click', function(){
+      carousel_counter--
+      if(carousel_counter < 0){
+        carousel_counter = image_array.length-1;
+      }
+      $(carousel_el).css({'background-image':'url('+image_array[carousel_counter]+'.jpeg)'})
+
+    })
+    $(forwardBtn).on('click', function(){
+      carousel_counter++
+      if(carousel_counter >= image_array.length){
+        carousel_counter = 0;
+      }
+      $(carousel_el).css({'background-image':'url('+image_array[carousel_counter]+'.jpeg)'})
+
+    })
+  }
+
+  $(function() {
+  $(window).on('load', function() {
+    init_carousel();
+
+  });
+});
+
