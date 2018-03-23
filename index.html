@@ -7,6 +7,11 @@
   <link rel="stylesheet" type="text/css" href="css/css.css">
 </head>
 <body>
+  <div id="animated">
+    <hr class='bar'>
+    <hr class='bar'>
+    <hr class='bar'>
+  </div>
   <div class="map-box">
     <div id="map1"></div>
 <!--     <div id="map2-wrapper">
@@ -15,15 +20,6 @@
   </div>
   <div class="home-section"> <!--  width="400" height="225" -->
     <iframe id="client-video"  src="https://www.youtube.com/embed/QfUBty3_zpE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    <div class="house-image">
-      <div id="carousel-back-btn"></div>
-      <div id="carousel-forward-btn"></div>
-    </div>
-      <div id="animated">
-        <hr class='bar'>
-        <hr class='bar'>
-        <hr class='bar'>
-      </div>
     <!-- Crowdsale detials -->
       <div class="crowdsale_info">
         <p>Target 3400  |  1 Token = 0.18 ETH (~$100)</p>
@@ -36,11 +32,232 @@
 
 
        
-        <div id="eth-logo"></div>
+        <img src="./ethereum1.png" id="eth-logo"></img>
         <!-- <div id="logo-wrapper"><div id="eth-logo"></div></div> -->
         <!-- <img id="eth-logo" src="../eth-blue1.png"> -->
       </div>
 
+
+  <div class="property-data">
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab active">Home</div>
+      <div class="tab">AVM</div>
+    </div>
+    <!-- HOME DATA -->
+    <div class="house-image hide" data-tab="Home">
+      <div id="carousel-back-btn"></div>
+      <div id="carousel-forward-btn"></div>
+      <div class="property-information">
+        <table>
+          <tr>
+            <th>Type:</th>
+            <td>Condo</td>
+          </tr>
+          <tr>
+            <th>YR Built:</th>
+            <td>1976</td>
+          </tr>
+          <tr>
+            <th>Bed/Bath:</th>
+            <td> 1/1</td>
+          </tr>
+          <tr>
+            <th>Sqft:</th>
+            <td>532</td>
+          </tr>
+          <tr>
+            <th>Fee</th>
+            <td> Simple</td>
+          </tr>
+          <tr>
+            <th>HOA:</th>
+            <td>$388</td>
+          </tr>
+          <tr>
+            <th>Tax:</th>
+            <td>$100</td>
+          </tr>
+        </table>
+         
+      </div>
+    </div>
+
+<!-- AVM DATA -->
+    <div class="AVM-information hide" data-tab="AVM">
+
+      <table>
+        <thead>
+          <tr>
+              <th>Address</th>
+              <th>Price</th>
+              <th>Bed</th>
+              <th>Bath</th>
+              <th>Living Sq. Ft.</th>
+              <th>Type*</th>
+              <th>Built</th>
+              <th>Sold</th>
+              <th>Total SqFt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hide"></tr>
+          <tr>
+            <td class="table-divider" colspan="9">Home Details</td>
+          </tr>
+          <tr>
+            <td>2121 ALGAROBA ST 907</td>
+            <td>$135,000</td>
+            <td>1</td>
+            <td>1</td>
+            <td>532</td>
+            <td>CO</td>
+            <td>1976</td>
+            <td>Mar-2002</td>
+            <td>532</td>
+
+          </tr>
+          <tr class="hide"></tr>
+
+          <tr>
+            <td class="table-divider" colspan="9">Homes Recently Sold | Sold Price***</td>
+          </tr>
+          <tr>
+            <td>2121 ALGAROBA ST 305</td>
+            <td>$360,000</td>
+            <td>1</td>
+            <td>1</td>
+            <td>532</td>
+            <td>CO</td>
+            <td>1976</td>
+            <td>Jan-2018</td>
+            <td>532</td>
+
+          </tr>
+          <tr>
+            <td>2121 ALGAROBA ST 502</td>
+            <td>$345,000</td>
+            <td>1</td>
+            <td>1</td>
+            <td>532</td>
+            <td>CO</td>
+            <td>1976</td>
+            <td>Jan-2018</td>
+            <td>532</td>
+          </tr>
+          <tr>
+            <td>796 ISENBERG ST 16G</td>
+            <td>$380,000</td>
+            <td>1</td>
+            <td>1</td>
+            <td>552</td>
+            <td>CO</td>
+            <td>1974</td>
+            <td>Nov-2017</td>
+            <td>552</td>
+          </tr>
+          <tr>
+            <td>2121 ALGAROBA ST 703</td>
+            <td>$355,000</td>
+            <td>1</td>
+            <td>1</td>
+            <td>532</td>
+            <td>CO</td>
+            <td>1976</td>
+            <td>Nov-2017</td>
+            <td>532</td>
+          </tr>
+          <tr>
+            <td>2121 ALGAROBA ST 1202</td>
+            <td>$341,000</td>
+            <td>1</td>
+            <td>1</td>
+            <td>532</td>
+            <td>CO</td>
+            <td>1976</td>
+            <td>Oct-2017</td>
+            <td>532</td>
+
+          </tr>
+        </tbody>
+      </table>
+      <div class="AVM-sub-information">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Oahu Condo</th>
+              <th>Total</th>
+              <th>Annual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Changes in Median Sales Price: <br>
+                1985 through 2017 (33 years)
+              </td>
+              <td>351.00%</td>
+              <td>4.67%</td>
+            </tr>
+
+    
+            <tr>
+              <td>
+                Changes in Average Sales Price:<br> 
+                1985 through 2017 (33 years)
+              </td>
+              <td>343.20%</td>
+              <td>4.62%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> <!--  end sub AVM info -->
+      </div>  <!--  end AVM info -->
+
+    </div> <!--  end property data -->
+  </div>
+
+  <div class="buyer-bio">
+    <div class="ethos">
+      <h4>Ethos</h4>
+      <a href="http://www.jamescharisma.com/">Website</a> | <a href="http://twitter.com/MrJamesCharisma">Twitter</a> | <a href="http://www.linkedin.com/in/jamescharisma">LinkedIn</a> | <a href="http://www.instagram.com/jcharisma">IG</a><br>
+       Honolulu, Hawaii
+       Writer and Editor — <a href="https://muckrack.com/media-outlet/abstracthawaii">Abstract</a>, <a href="https://muckrack.com/media-outlet/freelance">Freelance</a>, <a href="https://muckrack.com/media-outlet/honolulumagazine ">Honolulu Magazine</a>,
+       <a href="https://muckrack.com/beat/arts">Arts and Entertainment</a><br>
+      <strong>As seen in:</strong><a href="https://muckrack.com/media-outlet/abstracthawaii">Abstract</a>, <a href="https://muckrack.com/media-outlet/freelance">Freelance</a>, <a href="https://muckrack.com/media-outlet/honolulumagazine ">Honolulu Magazine</a>,
+       <a href="https://muckrack.com/beat/arts">Arts and Entertainment</a>,<a href="https://muckrack.com/media-outlet/vice">Vice</a>, <a href="https://muckrack.com/media-outlet/pacificbiznews">Pacific Business News</a>,<a href="https://muckrack.com/media-outlet/bizjournals">American City Business Journals</a>, <a href="https://muckrack.com/media-outlet/thrillist">Thrillist</a>, <a href="https://muckrack.com/media-outlet/playboy">Playboy</a><br>
+      <strong>Bio:</strong> James Charisma is an award-winning writer and editor from Honolulu, covering stories in the fields of arts, entertainment, and pop culture. His work has appeared in Playboy, VICE, Complex, Paste, Hi-Fructose, Hyperallergic, Thrillist, Inverse, Edible, Greatist, Whitehot, Knockout, and other publications.
+      He is the editor-in-chief of Abstract Magazine, an award-winning lifestyle and culture 80-page collectible print publication for Hawaii; assistant editor for Summit, a nationally distributed 180-page magazine with in-depth coverage of arts, business, civics, and literature in the Pacific hemisphere; contributing editor for HONOLULU Magazine, the largest city magazine in the state of Hawaii and the oldest American publication west of the Mississippi; and creative consultant for Accelerate, a quarterly print publication dedicated to entrepreneurs and startups.
+      In Honolulu, James Charisma is co-founder of Charisma Industries, an award-winning creative agency specializing in design, advertising, public relations, and developing content for print and digital media. He has developed projects for Image Comics and is a regular contributor for more than two dozen local print and digital publications including HAWAII Magazine, Modern + HILuxury, Hana Hou!, Pacific Edge, FLUX, Kikaha, Chinatown Now, Metro, Pacific Business News, Hawaii Skin Diver, foundry, the Hawaii Independent, the Honolulu Star-Advertiser, MidWeek, Ola, Ho'onanea, The Manifest Magazine, and more.
+      He has degrees in Psychology, Criminology, and Criminal Justice from the University of Hawaii at Manoa and Chaminade University, specializing in forensic and psychopathology, behavioral analysis, abnormal personality profiling, and conducting crime scene investigations.
+      His interests and passions include the opera, travel, playing with kittens, and eating cheeseburgers. He can be reached on Twitter (@CharismaInd) or Instagram (@JCharisma) or on KTUH 90.1 FM Honolulu every Wednesday afternoon from 3 to 6 p.m. HST playing pop music from the 20th century, everything from Harry Chapin to Harry Connick Jr. to Harry Belafonte.
+
+    </div>
+    <div class="pathos">
+      <h4>Pathos</h4>
+      I have lived in this building for 14 years. I have lived in my current unit for over 7 years. 
+
+    </div>
+    <div class="logos">
+      <h4>Logos</h4>
+      Credit Score: 720
+      Down Payment: $15,000
+      Total Verified Assets/Reserves: $60,000
+      Currently rent: $1,375 
+      Debt to Income: 22%
+
+
+      Proposed New Payment
+      Monthly Payment: $500 (Taxes & Insurance & HOA)
+      Net Reserves: $45,000
+      Net Monthly Savings: $875
+      Total Rainy Day Runway: 40 months 
+
+
+    </div>
+  </div>
+ 
 
       <div class="main-nav">
         <!-- Box to buy tokens -->
@@ -85,6 +302,63 @@
           </div>
       </div>
   </div>
+
+  <footer>
+    <div class="centered clearfix">
+      <div class="footer-logo">
+        <img class="logo" src="./ethereum1.png">
+        <div class="social">
+          <a href="https://www.facebook.com/" class="facebook">
+            <svg viewBox="0 0 33 33"><g><path d="M 17.996,32L 12,32 L 12,16 l-4,0 l0-5.514 l 4-0.002l-0.006-3.248C 11.993,2.737, 13.213,0, 18.512,0l 4.412,0 l0,5.515 l-2.757,0 c-2.063,0-2.163,0.77-2.163,2.209l-0.008,2.76l 4.959,0 l-0.585,5.514L 18,16L 17.996,32z"></path></g></svg>
+          </a>
+          <a href="https://twitter.com/" class="twitter">
+            <svg viewBox="0 0 33 33"><g><path d="M 32,6.076c-1.177,0.522-2.443,0.875-3.771,1.034c 1.355-0.813, 2.396-2.099, 2.887-3.632 c-1.269,0.752-2.674,1.299-4.169,1.593c-1.198-1.276-2.904-2.073-4.792-2.073c-3.626,0-6.565,2.939-6.565,6.565 c0,0.515, 0.058,1.016, 0.17,1.496c-5.456-0.274-10.294-2.888-13.532-6.86c-0.565,0.97-0.889,2.097-0.889,3.301 c0,2.278, 1.159,4.287, 2.921,5.465c-1.076-0.034-2.088-0.329-2.974-0.821c-0.001,0.027-0.001,0.055-0.001,0.083 c0,3.181, 2.263,5.834, 5.266,6.438c-0.551,0.15-1.131,0.23-1.73,0.23c-0.423,0-0.834-0.041-1.235-0.118 c 0.836,2.608, 3.26,4.506, 6.133,4.559c-2.247,1.761-5.078,2.81-8.154,2.81c-0.53,0-1.052-0.031-1.566-0.092 c 2.905,1.863, 6.356,2.95, 10.064,2.95c 12.076,0, 18.679-10.004, 18.679-18.68c0-0.285-0.006-0.568-0.019-0.849 C 30.007,8.548, 31.12,7.392, 32,6.076z"></path></g></svg>
+          </a>
+          <a href="https://www.linkedin.com/" class="linkedin">
+            <svg viewBox="0 0 512 512"><g><path d="M186.4 142.4c0 19-15.3 34.5-34.2 34.5 -18.9 0-34.2-15.4-34.2-34.5 0-19 15.3-34.5 34.2-34.5C171.1 107.9 186.4 123.4 186.4 142.4zM181.4 201.3h-57.8V388.1h57.8V201.3zM273.8 201.3h-55.4V388.1h55.4c0 0 0-69.3 0-98 0-26.3 12.1-41.9 35.2-41.9 21.3 0 31.5 15 31.5 41.9 0 26.9 0 98 0 98h57.5c0 0 0-68.2 0-118.3 0-50-28.3-74.2-68-74.2 -39.6 0-56.3 30.9-56.3 30.9v-25.2H273.8z"></path></g></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-contact">
+         <h3><a href="">Contact</a></h3>
+         <p><a href="mailto:">fake@fake.com</a></p>
+         <p><a href="tel:">123-456-7890</a></p>
+         <p><a href="">123 Fake St<br />Fake, PA 11111</a></p>
+      </div>
+      <div class="footer-navigation">
+        <div class="footer-links-holder">
+          <h3><a href="">Section 1</a></h3>
+          <ul class="footer-links">
+            <li><a href="">Page Title 1</a></li>
+            <li><a href="">Page Title 2</a></li>
+            <li><a href="">Page Title 3</a></li>
+            <li><a href="">Page Title 4</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-holder">
+          <h3><a href="">Section 2</a></h3>
+          <ul class="footer-links">
+            <li><a href="">Page Title 1</a></li>
+            <li><a href="">Page Title 2</a></li>
+            <li><a href="">Page Title 3</a></li>
+            <li><a href="">Page Title 4</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-holder">
+          <h3><a href="">Section 3</a></h3>
+          <ul class="footer-links">
+            <li><a href="">Page Title 1</a></li>
+            <li><a href="">Page Title 2</a></li>
+            <li><a href="">Page Title 3</a></li>
+            <li><a href="">Page Title 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-bar">
+        All Rights Reserved © 2016 | <a href="">Privacy Policy</a> | <a href="">Terms of Service</a>
+    </div>
+  </footer>
 
 
 <!-- Scripts -->
