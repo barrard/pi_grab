@@ -34,7 +34,13 @@ tr:nth-child(odd){
   color: blue;
   background: rgb(222, 222, 222);
 }
+#current_token_balance{
+  color: rgb(2, 11, 212);
+}
 
+#crowdsale_wallet_finalize{
+  display: none;
+}
 
 
 .accordion {
@@ -98,7 +104,7 @@ tr:nth-child(odd){
 
 #eth-logo{
   position: absolute;
-  right: 0px;
+  right: -110px;
   bottom: 0px;
   width: 158px;
 /*  height: 100px;

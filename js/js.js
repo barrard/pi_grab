@@ -1,7 +1,9 @@
 App = {
   address:{
-    token:"0x409F8C0Bb2C9C278a51E9f0E0f38AD32F663415e",
-    crowdsale:'0x4fed11DF20f85C1BBe0b19680773929C3172161a',
+    token:"0x41acb3dca09f738224adec8089845ed43276c55d",
+    crowdsale:'0x2759416091dd87295355e2cc91879479cc236cf4',
+    // token:"0x409F8C0Bb2C9C278a51E9f0E0f38AD32F663415e", saved
+    // crowdsale:'0x4fed11DF20f85C1BBe0b19680773929C3172161a', saved
   },
   abi:{},
   contracts:{},
@@ -17,15 +19,13 @@ App = {
       return
       // If no injected web3 instance is detected, fall back to Ganache
       // App.web3Provider = new Web3.providers.HttpProvider('http://192.168.0.93:8545');
-      // App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
+      App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
     }
     web3 = new Web3(App.web3Provider);
     web3.eth.getAccounts(function(e, r){
         console.log(r)
         $('#ethAccountID').html(r[0])
-        if(r[0]==='0x038343bfaf1f35b01d91513c8472764d55474045'){
-          $('#token_minting_owner').css({display:"block"});
-        }
+
         App.account = r[0];
         try {
           web3.eth.getBalance(r[0].toString(),function(e, r){
@@ -62,13 +62,20 @@ App = {
     //set data
     $('#crowdsale_address').text(App.address.crowdsale)
 
-    App.contracts.token.balanceOf(App.address.crowdsale, function(e, r){
-      if (e) {return}
-        $('#tokens_available').text(3690-r)
+    App.contracts.token.owner((e,r)=>{
+      if(r==App.account){
+        $('#token_minting_owner').show();
+      }
     })
+
+
     App.contracts.crowdsale.owner(function(e, r){
       if (e) {return}
         $('#crowdsale_owner_address').text(r)
+      if(App.account == r){
+        $('#crowdsale_wallet_finalize').show();
+
+      }
     })
 
     App.contracts.crowdsale.openingTime(function(e, r){
@@ -100,10 +107,36 @@ App = {
     App.contracts.crowdsale.goalReached(function(e, r){
       if (e) {return}
         $('#crowdsale_goal_reached').text(r)
+        if(r==true){
+          $('#End_crowd_sale').show();
+        }
     })
     App.contracts.crowdsale.hasClosed(function(e, r){
       if (e) {return}
         $('#crowdsale_has_closed').text(r)
+        if(r==true){
+          $('#finalize_crowdsale').show();
+        }
+
+    })
+    App.contracts.crowdsale.isFinalized(function(e, r){
+      if (e) {return}
+        $('#crowdsale_is_finalized').text(r)
+        if(r==true){
+          // $('#finalize_crowdsale').show();
+          console.log('THIS CROWDSALE SHOULD BE OVER!!!!!!!!!')
+        }
+
+    })
+    App.contracts.crowdsale.token_goal(function(e, r){
+      if (e) {return}
+        $('#tokens_needed').text(r)
+      const _need = r;
+
+        App.contracts.token.balanceOf(App.address.crowdsale, function(e, r){
+          if (e) {return}
+            $('#tokens_available').text(_need-r)
+        })
     })
     App.contracts.token.balanceOf(App.account, function(e, r){
       if (e) {return}
@@ -115,6 +148,49 @@ App = {
 
 
     //click action
+    $('#finalize_crowdsale').on('click', ()=>{
+      console.log('finalize it')
+      App.contracts.crowdsale.finalize( (e, r)=>{
+        if(e){
+          console.log(e)
+          return
+        }else if(r){
+          activate_spinner('#block-spinner')
+          console.log(r)
+          toastr.success('Finalizzed initiated')
+          call_when_mined(r, function(){
+            toastr.success('Finalizzed finished')
+            hide_spinner('#block-spinner')
+
+          })
+
+        }else{
+          console.log("WTFFFFFFFFF!!!!!!!!")
+        }
+    })
+  })
+    $('#End_crowd_sale').on('click', ()=>{
+      console.log('end time limit')
+      App.contracts.crowdsale.End_crowd_sale( (e, r)=>{
+        if(e){
+          console.log(e)
+          return
+        }else if(r){
+          activate_spinner('#block-spinner')
+          console.log(r)
+          toastr.success('Ending timer')
+          call_when_mined(r, function(){
+            toastr.success('timer finished')
+            hide_spinner('#block-spinner')
+
+          })
+
+        }else{
+          console.log("WTFFFFFFFFF!!!!!!!!")
+        }
+    })
+  })
+
     $('#purchase_tokens_btn').on('click', function(){
       var _val = $('#number_of_tokens_to_buy').val()
       console.log('buying '+_val)
@@ -152,7 +228,9 @@ App = {
         
         if(e){hide_spinner('#block-spinner');return}
           console.log(txHash)
-          call_when_mined(txHash, function(){hide_spinner('#block-spinner')})
+          call_when_mined(txHash, function(){
+            hide_spinner('#block-spinner')
+          })
         
 
         $('#crowdsale_address_to_receive').val('')
@@ -161,8 +239,41 @@ App = {
       })
     })
 
+    // return App.set_watchers()
+
+  },
+  set_watchers:()=>{
+   const events_array =  ['OwnershipTransferred'
+    ,'Transfer'
+    ,'Approval'
+    ,'TokenPurchase'
+    ,'Finalized'
+    ,'Closed'
+    ,'RefundsEnabled'
+    ,'Refunded']
+    console.log(events_array)
+    events_array.forEach((event)=>{
+      console.log(event)
+      let event_event = App.contracts.crowdsale.Closed(
+        {}, {fromBlock:0, toBlock:'latest'})
+      event_event.watch(function(e, r){
+        console.log(event+'_event');
+        if(e){
+          console.log('error')
+          console.log(e)
+        }else if (r){
+          console.log(r)
+        }
+      })
+
+
+
+
+    })
+
 
   }
+
 }
 
 

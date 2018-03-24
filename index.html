@@ -19,7 +19,7 @@
     </div> -->
   </div>
   <div class="home-section"> <!--  width="400" height="225" -->
-    <iframe id="client-video"  src="https://www.youtube.com/embed/QfUBty3_zpE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <!-- <iframe id="client-video"  src="https://www.youtube.com/embed/QfUBty3_zpE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
     <!-- Crowdsale detials -->
       <div class="crowdsale_info">
         <p>Target 3400  |  1 Token = 0.18 ETH (~$100)</p>
@@ -305,7 +305,7 @@
             
             <p>Your Account Address: <span id="ethAccountID"></span></p>
             <p>Curent Balance: <span id="currentBalance"></span></p>
-            <p>Token Balance: <span id="current_token_balance"></span></p>
+            <p>You own <span class="gold-underline" id="current_token_balance"></span> Tokens of this crowdsale: </p>
 
             <p class="crowdsale-info-tag">Time remaining:  </p><br><span class="crowdsale-data" id="crowdsale_time_remaining"></span><br>
 
@@ -313,12 +313,13 @@
             <p class="crowdsale-info-tag">Crowdsale Owner:  </p><span class="crowdsale-data" id="crowdsale_owner_address"></span><br>
 
             <!-- <p class="crowdsale-info-tag">Total Tokens Available:  </p><span class="crowdsale-data" id="tokens_available"></span>/<span class="gold-underline">3400</span><br> -->
-            <p class="crowdsale-info-tag">Tokens Sold:  </p><span class="crowdsale-data" id="tokens_available"></span>/<span class="gold-underline">3690</span><br>
+            <p class="crowdsale-info-tag">Tokens Sold:  </p><span class="crowdsale-data" id="tokens_available"></span>/<span class="gold-underline"><span id="tokens_needed"></span></span><br>
             <p class="crowdsale-info-tag">Created on:  </p><span class="crowdsale-data" id="crowdsale_creation_time"></span><br>
             <p class="crowdsale-info-tag">Crowdsale Eth Raised:  </p><span class="crowdsale-data" id="crowdsale_eth_raised"></span>/<span class="gold-underline"><span class="crowdsale-data" id="crowdsale_goal"></span></span><br>
             <!-- <p class="crowdsale-info-tag">Crowdsale Goal:  </p><span class="crowdsale-data" id="crowdsale_goal"></span><br> -->
             <p class="crowdsale-info-tag">Crowdsale Goal Reached:  </p><span class="crowdsale-data" id="crowdsale_goal_reached"></span><br>
             <p class="crowdsale-info-tag">Crowdsale Has Closed:  </p><span class="crowdsale-data" id="crowdsale_has_closed"></span><br>
+            <p class="crowdsale-info-tag">Crowdsale Is Finalized:  </p><span class="crowdsale-data" id="crowdsale_is_finalized"></span><br>
  
           </div>
 
@@ -339,6 +340,15 @@
               id="crowdsale_address_to_receive"
             />
             <button id='mint_token_btn'>Send it</button>
+          </div>
+
+          <div class="hide" id="crowdsale_wallet_finalize">
+
+            
+            <button class="hide" id="End_crowd_sale">End Crowdsale</button>
+
+            
+            <button class="hide" id="finalize_crowdsale">finalize Crowdsale</button>
           </div>
       </div>
   </div>

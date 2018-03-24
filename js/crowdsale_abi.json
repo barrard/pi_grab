@@ -74,12 +74,6 @@
   },
   {
     "anonymous": false,
-    "inputs": [],
-    "name": "Finalized",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
     "inputs": [
       {
         "indexed": true,
@@ -93,6 +87,12 @@
       }
     ],
     "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [],
+    "name": "Finalized",
     "type": "event"
   },
   {
@@ -133,6 +133,10 @@
       },
       {
         "name": "_goal",
+        "type": "uint256"
+      },
+      {
+        "name": "_token_goal",
         "type": "uint256"
       }
     ],
@@ -302,6 +306,20 @@
       {
         "name": "",
         "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "token_goal",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
       }
     ],
     "payable": false,

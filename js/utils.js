@@ -17,6 +17,7 @@ function format_date_time_stamp(_num){
     var hours = minutes/60
     var days = hours/24
     var years = days/365
+    if (seconds < 0 || minutes < 0 || hours < 0 || days < 0 || years < 0 ) return '0 Days, 0 Hours, 0 Minutes. 0 Seconds'; 
 
     // console.log({
     //   seconds, minutes, hours, days, years

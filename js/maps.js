@@ -1,5 +1,5 @@
       function initMap() {
-        var Big_Island = {lat: 19.4590307, lng: -155.409995};
+        var Big_Island = {lat: 21.293184, lng: -157.828616};
         var map1 = new google.maps.Map(document.getElementById('map1'), {
           zoom: 9,
           center: Big_Island,
