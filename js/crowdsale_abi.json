@@ -55,7 +55,7 @@
     "name": "End_crowd_sale",
     "outputs": [
       {
-        "name": "res",
+        "name": "",
         "type": "bool"
       }
     ],
