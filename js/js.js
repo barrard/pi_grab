@@ -2,8 +2,8 @@ App = {
   address:{
     token:"0x41acb3dca09f738224adec8089845ed43276c55d", //saved
     crowdsale:'0x303cc55b6411560b7ce87572ea63c0bcbe75a918',//saved
-    // token:"0x4e12e17f3b2ecec2e4ed4890383529b49c54c923", 
-    // crowdsale:'0x9b77083f0fcee81e3c0f7c3ea421dff76fe07fbf', 
+    // token:"0xad930b6e063bae9fb8064ad30402b3c78711d3fb", 
+    // crowdsale:'0x770b9e155598e73655a663f49499c2ac8d5ad276', 
   },
   abi:{},
   contracts:{},
@@ -23,7 +23,7 @@ App = {
         // alert('this website is best used with MetaMask '+metaUrl)
       }
       web3.version.getNetwork((err, netId) => {
-        if(netId!==4){
+        if(netId!=4){
           $('#rinkebyRequired').css({display:'block'});
         }
       })
@@ -296,30 +296,30 @@ App = {
       })
     })
 
-    // return App.set_watchers()
+    return App.set_watchers()
 
   },
   set_watchers:()=>{
 
-    var Transfer_event = App.contracts.token.Transfer({}, {fromBlock:0, toBlock:'latest'})
+   //  var Transfer_event = App.contracts.token.Transfer({}, {fromBlock:0, toBlock:'latest'})
 
-    Transfer_event.watch(function(e, r){
-      console.log('Transfer_event')
-        if(e){
-          console.log('error')
-          console.log(e)
-        }else if (r){
-          // if(App.check_block(r)){
-            console.log(r)
+   //  Transfer_event.watch(function(e, r){
+   //    console.log('Transfer_event')
+   //      if(e){
+   //        console.log('error')
+   //        console.log(e)
+   //      }else if (r){
+   //        // if(App.check_block(r)){
+   //          console.log(r)
    
-   // from:"0x0000000000000000000000000000000000000000"
-   // to:"0xfc0d60268578ad8c9626747e030d9fcbc09d5115"
-   // value:r {s: 1, e: 2, c: Array(1)}
+   // // from:"0x0000000000000000000000000000000000000000"
+   // // to:"0xfc0d60268578ad8c9626747e030d9fcbc09d5115"
+   // // value:r {s: 1, e: 2, c: Array(1)}
 
-        }else{
-          console.log('User_joined_event error')
-        }
-      })
+   //      }else{
+   //        console.log('User_joined_event error')
+   //      }
+   //    })
 
 
     const token_events_array = [
@@ -340,10 +340,10 @@ App = {
     ,'TokenPurchase'
     ,'Finalized'
     ]
-    console.log(events_array)
-    events_array.forEach((event)=>{
+
+    refund_vault_events_array.forEach((event)=>{
       console.log(event)
-      let event_event = App.contracts.crowdsale.Closed(
+      let event_event = App.contracts.vault[event](
         {}, {fromBlock:0, toBlock:'latest'})
       event_event.watch(function(e, r){
         console.log(event+'_event');
@@ -354,10 +354,36 @@ App = {
           console.log(r)
         }
       })
+    })
 
+    token_events_array.forEach((event)=>{
+      console.log(event)
+      let event_event = App.contracts.token[event](
+        {}, {fromBlock:0, toBlock:'latest'})
+      event_event.watch(function(e, r){
+        console.log(event+'_event');
+        if(e){
+          console.log('error')
+          console.log(e)
+        }else if (r){
+          console.log(r)
+        }
+      })
+    })
 
-
-
+    crowdsale_events_array.forEach((event)=>{
+      console.log(event)
+      let event_event = App.contracts.crowdsale[event](
+        {}, {fromBlock:0, toBlock:'latest'})
+      event_event.watch(function(e, r){
+        console.log(event+'_event');
+        if(e){
+          console.log('error')
+          console.log(e)
+        }else if (r){
+          console.log(r)
+        }
+      })
     })
 
 
