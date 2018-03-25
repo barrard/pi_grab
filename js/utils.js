@@ -97,7 +97,7 @@ function format_date_time_stamp(_num){
     var backBtn = $('#carousel-back-btn')
     var forwardBtn = $('#carousel-forward-btn')
     var carousel_el = $('.house-image')[0]
-    $(carousel_el).css({'background-image':'url('+image_array[carousel_counter]+'.JPG)'})
+    $(carousel_el).css({'background-image':'url('+image_array[carousel_counter]+'.jpeg)'})
 
     $(backBtn).on('click', function(){
       carousel_counter--
