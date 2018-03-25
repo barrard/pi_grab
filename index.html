@@ -7,6 +7,15 @@
   <link rel="stylesheet" type="text/css" href="css/css.css">
 </head>
 <body>
+  <div style="display: none;" id="rinkebyRequired">
+    <h1>Please switch metamask to Rinkeby testnet</h1>
+  </div>
+  <div style="display: none;" id="metaMask">
+    <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en">
+      <img height='40px'src="https://lh3.googleusercontent.com/0j7Ij02PtXsqEpjrNFPy9Q_a50SUNeO-FQUntjaFIK0r-Cxp81S4Op2cSQfIK26K6s32L7s4=w26-h26-e365" alt="metaMaskLogo">
+      <h2>This website requires Metamask to be installed</h2>
+    </a>
+  </div>
   <div id="animated">
     <hr class='bar'>
     <hr class='bar'>
@@ -411,6 +420,7 @@
 <!-- Scripts -->
   <script src="js/jq.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+  <script src="js/web3.js"></script>
   <script src="js/js.js"></script>
   <script src="js/utils.js"></script>
   <script async defer

@@ -2,8 +2,8 @@ App = {
   address:{
     token:"0x41acb3dca09f738224adec8089845ed43276c55d", //saved
     crowdsale:'0x303cc55b6411560b7ce87572ea63c0bcbe75a918',//saved
-    // token:"0x75761bbccb5e35ed99522c0e0b0b19403961cb65", 
-    // crowdsale:'0xc08995cee48c6198ab18a5f609743f03a2cb1549', 
+    // token:"0x4e12e17f3b2ecec2e4ed4890383529b49c54c923", 
+    // crowdsale:'0x9b77083f0fcee81e3c0f7c3ea421dff76fe07fbf', 
   },
   abi:{},
   contracts:{},
@@ -15,11 +15,46 @@ App = {
   initWeb3: function() {
     if (typeof web3 !== 'undefined') {
       App.web3Provider = web3.currentProvider;
+      console.log('check undefined')
+      if(!web3.currentProvider.isMetaMask){
+        $('#metaMask').css({'display':'block'})
+        console.log('check meta')
+        // var metaUrl = 'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en'
+        // alert('this website is best used with MetaMask '+metaUrl)
+      }
+      web3.version.getNetwork((err, netId) => {
+        if(netId!==4){
+          $('#rinkebyRequired').css({display:'block'});
+        }
+      })
+      // web3.version.getNetwork((err, netId) => {
+      //   switch (netId) {
+      //     case "1":
+      //       console.log('This is mainnet')
+      //       break
+      //     case "2":
+      //       console.log('This is the deprecated Morden test network.')
+      //       break
+      //     case "3":
+      //       console.log('This is the ropsten test network.')
+      //       break
+      //     case "4":
+      //       console.log('This is the Rinkeby test network.')
+      //       break
+      //     default:
+      //       console.log('This is an unknown network.')
+      //   }
+      // })
+
+
     } else {
+      $('#metaMask').css({'display':'block'})
+      console.log(' meta is undefined?')
+
       return
       // If no injected web3 instance is detected, fall back to Ganache
       // App.web3Provider = new Web3.providers.HttpProvider('http://192.168.0.93:8545');
-      App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
+      // App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
     }
     web3 = new Web3(App.web3Provider);
     web3.eth.getAccounts(function(e, r){
@@ -51,7 +86,25 @@ App = {
       $.getJSON('js/crowdsale_abi.json', function(data) {
         App.abi.crowdsale = web3.eth.contract(data)
         App.contracts.crowdsale = App.abi.crowdsale.at(App.address.crowdsale)
-        return App.setUI();
+        App.contracts.crowdsale.vault((e, r)=>{
+          if(e){
+            console.log(e);
+            return
+          }else{
+            const vault_address = r;
+            $.getJSON('js/refund_vault_abi.json', function(data) {
+              App.abi.vault = web3.eth.contract(data)
+              App.contracts.vault = App.abi.vault.at(vault_address)
+
+              
+              return App.setUI();
+
+            });
+
+
+          }
+        })
+
 
       });
 
@@ -88,6 +141,10 @@ App = {
                 var now = new Date().getTime();
               const closing_time = r*1000
               var time_left = closing_time - now
+              if(time_left < 1){
+                $('#crowdsale_wallet_finalize').show();
+
+              }
 
                 $('#crowdsale_time_remaining').text(format_date_time_remaining(time_left))
             }, 1000)
@@ -243,14 +300,46 @@ App = {
 
   },
   set_watchers:()=>{
-   const events_array =  ['OwnershipTransferred'
-    ,'Transfer'
+
+    var Transfer_event = App.contracts.token.Transfer({}, {fromBlock:0, toBlock:'latest'})
+
+    Transfer_event.watch(function(e, r){
+      console.log('Transfer_event')
+        if(e){
+          console.log('error')
+          console.log(e)
+        }else if (r){
+          // if(App.check_block(r)){
+            console.log(r)
+   
+   // from:"0x0000000000000000000000000000000000000000"
+   // to:"0xfc0d60268578ad8c9626747e030d9fcbc09d5115"
+   // value:r {s: 1, e: 2, c: Array(1)}
+
+        }else{
+          console.log('User_joined_event error')
+        }
+      })
+
+
+    const token_events_array = [
+    'Transfer'
+    ,'OwnershipTransferred'
     ,'Approval'
+    ]
+    const refund_vault_events_array = [
+    'Closed'
+    ,'RefundsEnabled'
+    ,'Refunded'
+
+
+
+    ]
+   const crowdsale_events_array =  [
+   'OwnershipTransferred' 
     ,'TokenPurchase'
     ,'Finalized'
-    ,'Closed'
-    ,'RefundsEnabled'
-    ,'Refunded']
+    ]
     console.log(events_array)
     events_array.forEach((event)=>{
       console.log(event)
