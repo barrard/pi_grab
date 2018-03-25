@@ -91,13 +91,13 @@ function format_date_time_stamp(_num){
   }
 
 
-  var image_array = ['small-land-preview', 'doll-house', 'green-house']
+  var image_array = ['james_place1', 'james_place2']
   var carousel_counter = 0;
   function init_carousel(){
     var backBtn = $('#carousel-back-btn')
     var forwardBtn = $('#carousel-forward-btn')
     var carousel_el = $('.house-image')[0]
-    $(carousel_el).css({'background-image':'url('+image_array[carousel_counter]+'.jpeg)'})
+    $(carousel_el).css({'background-image':'url('+image_array[carousel_counter]+'.JPG)'})
 
     $(backBtn).on('click', function(){
       carousel_counter--
