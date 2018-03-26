@@ -323,68 +323,47 @@ App = {
 
 
     const token_events_array = [
-    'Transfer'
-    ,'OwnershipTransferred'
-    ,'Approval'
+      'Transfer'
+      ,'OwnershipTransferred'
+      ,'Approval'
     ]
     const refund_vault_events_array = [
-    'Closed'
-    ,'RefundsEnabled'
-    ,'Refunded'
-
-
-
+       'Closed'
+      ,'RefundsEnabled'
+      ,'Refunded'
     ]
    const crowdsale_events_array =  [
-   'OwnershipTransferred' 
-    ,'TokenPurchase'
-    ,'Finalized'
+       'OwnershipTransferred' 
+      ,'TokenPurchase'
+      ,'Finalized'
     ]
+    
+    const contracts_events_obj ={
+      vault:refund_vault_events_array,
+      token:token_events_array,
+      crowdsale:crowdsale_events_array,
+    }
 
-    refund_vault_events_array.forEach((event)=>{
-      console.log(event)
-      let event_event = App.contracts.vault[event](
-        {}, {fromBlock:0, toBlock:'latest'})
-      event_event.watch(function(e, r){
-        console.log(event+'_event');
-        if(e){
-          console.log('error')
-          console.log(e)
-        }else if (r){
-          console.log(r)
-        }
+    Object.keys(contracts_events_obj).forEach((i)=>{
+      // console.log(`${i} : ${contracts_events_obj[i]}`)
+      // console.log(contracts_events_obj[i])
+      contracts_events_obj[i].forEach((event)=>{
+        let event_event = App.contracts[i][event](
+          {}, {fromBlock:0, toBlock:'latest'})
+        event_event.watch(function(e, r){
+          console.log(event+'_event');
+          if(e){
+            console.log('error')
+            console.log(e)
+          }else if (r){
+            console.log(r)
+          }
+        })
+
       })
     })
 
-    token_events_array.forEach((event)=>{
-      console.log(event)
-      let event_event = App.contracts.token[event](
-        {}, {fromBlock:0, toBlock:'latest'})
-      event_event.watch(function(e, r){
-        console.log(event+'_event');
-        if(e){
-          console.log('error')
-          console.log(e)
-        }else if (r){
-          console.log(r)
-        }
-      })
-    })
 
-    crowdsale_events_array.forEach((event)=>{
-      console.log(event)
-      let event_event = App.contracts.crowdsale[event](
-        {}, {fromBlock:0, toBlock:'latest'})
-      event_event.watch(function(e, r){
-        console.log(event+'_event');
-        if(e){
-          console.log('error')
-          console.log(e)
-        }else if (r){
-          console.log(r)
-        }
-      })
-    })
 
 
   }
