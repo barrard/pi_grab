@@ -104,9 +104,9 @@ tr:nth-child(odd){
 
 #eth-logo{
   position: absolute;
-  right: -110px;
+  right: 0px;
   bottom: 0px;
-  width: 158px;
+  width: 58px;
 /*  height: 100px;
 */
 }
